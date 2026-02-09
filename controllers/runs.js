@@ -56,7 +56,7 @@ const deleteRun = async(req,res) =>{
     if(!run){
         throw new NotFoundError(`No run with id ${runId}`)
     }
-    res.status(StatusCodes.OK).send() 
+    res.status(StatusCodes.OK).json({ msg: "The entry was deleted." });
 }
 
 module.exports ={

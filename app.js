@@ -12,7 +12,9 @@ const app = express();
 //conectDB 
 const connectDB = require("./db/connect")
 
+//authentication 
 const authenticateUser = require("./middleware/authentication")
+
 //routers
 const authRouter = require("./routes/auth")
 const runsRouter = require("./routes/runs")
@@ -37,6 +39,7 @@ app.use(xss())
 
 
 // routes
+app.use(express.static("public"));
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/runs', authenticateUser, runsRouter)
 
